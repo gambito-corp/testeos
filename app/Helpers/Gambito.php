@@ -18,8 +18,7 @@ class Gambito
 {
     public $id;
     public $check;
-
-
+    
     //METODOS DE ENCRIPTACION
     public static function hash($id, $decode = null)
     {
@@ -79,25 +78,28 @@ class Gambito
             : $user;
     }
 
-    public static function checkEstado(Producto $producto, $id, $live = false)
+    public static function checkEstado(Producto $producto, $id, $live = false, $set = false)
     {
         if($producto->started_at->sub(15, 'Minutes')<=now() && $producto->finalized_at >= now() && $live == false){
             $estado = 'online';
         }elseif($producto->user_id == $id && $producto->finalized_at >= now()){
-            $estado = 'ganador'; //Cambiar a Ganador
+            $estado = 'ganador'; //Cambiar a ganador
+        }elseif($producto->finalized_at->subSecond()->toTimeString() <= now()->toTimeString() && $live == true){
+            $estado = 'STOP';
+        }elseif($producto->started_at->toTimeString() >= now()->toTimeString() && $producto->finalized_at->toTimeString() >= now()->toTimeString()  && $live == true){
+            $estado = 'esperen';
         }elseif($producto->user_id != $id && $producto->finalized_at >= now()){
             $estado = 'puja';
-        }elseif($producto->finalized_at <= now()){
+        }elseif(now()->subSecond()->toTimeString() <= $producto->finalized_at->toTimeString()   || $set == true){
             $estado = 'Finalizada';
         }else{
-            $estado = 'puja';
+            $estado = 'hola';
         }
         return $estado;
     }
 
     public static function checkInicioSubasta(Producto $producto)
     {
-
         if (now() < $producto->started_at) {
             return redirect()->route('index')->with('flash', 'La Subasta Todavia no empieza');
         } elseif (now() > $producto->finalized_at) {
@@ -160,13 +162,14 @@ class Gambito
     public static function Pujar($id, $live = false)
     {
         $producto = self::obtenerProducto($id);
-        $producto->precio += $producto->puja;
-        $producto->user_id = Auth::id();
-        if($live && $producto->finalized_at == now()){
+        if($live && $producto->finalized_at <= now()){
+            if($live && $producto->finalized_at == now()->subSecond())
+            {
+                self::checkEstado($producto, Auth::id(), true, true);
+            }
             $producto->finalized_at = now()->addSeconds(8);
         }
         $producto->update();
-
         if($live){
             $mensaje = Message::create([
                 'producto_id' => $producto->id,

@@ -6,13 +6,14 @@ use App\Events\User\UserCreated;
 use App\Events\User\UserUpdated;
 use App\Events\User\UserDeleted;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use SoftDeletes;
@@ -61,17 +62,18 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
     //Metodos Personalizados
     public static function registerUser(array $data)
     {
-        DB::transaction(function()use($data){
-            User::create([
+        $user = new User();
+        $test = DB::transaction(function()use($data, $user){
+            $user = User::create([
                 'role_id' => 2,
                 'name' => substr($data['nombre'],0,3).substr($data['apellido'],0,3).substr($data['dni'],0,3),
                 'email' => $data['email'],
-                'avatar' => 'users/default.png',
+                'avatar' => 'default.png',
                 'password' => Hash::make($data['password']),
             ]);
 
             Person::create([
-
+                'user_id' => $user->id,
                 'nombres' => $data['nombre'],
                 'apellidos' => $data['apellido'],
                 'numero_documento' => $data['dni'],
@@ -79,13 +81,38 @@ class User extends \TCG\Voyager\Models\User implements MustVerifyEmail
                 'email' => $data['email'],
             ]);
         });
+        return User::where('email', $data['email'])->first();
+    }
+
+    public function isAdmin() {
+        return $this->Rol()->where('name', 'Admin')->exists();
+    }
+
+    public function puedePersonificar()
+    {
+        return $this->isAdmin();
     }
 
 
     //Relaciones
+    public function Rol()
+    {
+        return $this->belongsTo(Rol::class, 'role_id');
+    }
+
     public function ranking()
     {
         return $this->belongsTo(Ranking::class);
+    }
+
+    //hasOne
+    public function Balance()
+    {
+        return $this->hasOne(Balance::class, 'user_id');
+    }
+    public function Persona()
+    {
+        return $this->hasOne(Person::class, 'user_id');
     }
 
 }

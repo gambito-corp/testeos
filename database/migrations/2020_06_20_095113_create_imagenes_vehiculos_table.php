@@ -15,9 +15,9 @@ class CreateImagenesVehiculosTable extends Migration {
 		Schema::create('imagenes_vehiculos', function(Blueprint $table)
 		{
 			$table->id();
-			$table->unsignedBigInteger('empresa_id');
-			$table->unsignedBigInteger('lote_id');
-			$table->unsignedBigInteger('producto_id');
+			$table->foreignId('empresa_id')->nullable()->constrained('companies')->onDelete('set null');
+			$table->foreignId('lote_id')->nullable()->constrained('lots')->onDelete('set null');
+			$table->foreignId('producto_id')->nullable()->constrained()->onDelete('set null');
 			$table->string('imagen');
 			$table->string('titulo')->nullable();
 			$table->text('descripcion', 65535)->nullable();

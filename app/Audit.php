@@ -41,14 +41,14 @@ class Audit extends Model
      */
     protected $casts = [
         'id'            => 'integer',
-        'user_id'    => 'integer',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'user_id'       => 'integer',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
     //RELACIONES
     public function Usuario()
     {
-        return $this->hasMany(User::class)->withDefault();
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

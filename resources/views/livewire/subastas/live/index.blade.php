@@ -1,12 +1,12 @@
-<div class="row" wire:poll.750ms="$refresh">
+<div class="row">
     <!-- main content -->
     <div class="row mt-5 margin-row">
         <div class="row bg-dark text-light pt-4 pl-4 pr-4 pb-4 margin-row" style="border-radius: 10px;">
             <div class="col-md-3 col-sm-12">
-                <img src="{{asset('assets/img/image-077.png')}}" width="240px" class="rounded mx-auto d-block img-fluid" height="231" alt="" />
+                <img src="{{asset($producto->imagen)}}" width="240px" class="rounded mx-auto d-block img-fluid" height="231" alt="" />
             </div>
             <div class="col-md-6 col-sm-12">
-                <h1 class="ml-2">{{$vehiculo->Marca->nombre.' '.$vehiculo->Modelo->nombre.' '.$vehiculo->nombre}}</h1>
+                <h1 class="ml-2">{{$producto->nombre}}</h1>
                 <p class="ml-2">{{$vehiculo->year}}</p>
                 <div class="col-md-9 pd-0 m-0 pl-4">
                     <!--  -->
@@ -59,6 +59,7 @@
                             </div>
                             <div class="col-md-9">
                                 <span class="my-auto align text-center">concedido por: <br><strong>{{$producto->Lote->Empresa->razon_social}}</strong></span>
+
                                 <h5 class="my-auto px-2">{{$vehiculo->year}}</h5>
                             </div>
                         </div>
@@ -79,7 +80,7 @@
                         </b></i></h3>
                     </div>
                     <div class="col-12">
-                        <span class="text-badge_live" wire:model="ganador">  se Lo va LLevando {{$producto->Usuario->name}} a </span>
+                        <span class="text-badge_live">  se Lo va LLevando {{$producto->Usuario->name}} a </span>
                         <span class="ml-3 pl-3 badge_live"> $ {{$producto->precio}}</span>
                     </div>
                     <div class="col">
@@ -140,10 +141,11 @@
                 <div class="col live-push_auction-timer_bottom">
                     <div class="text-center">
                         <i class="fas fa-user"> </i>
+                        <span class="d-block" id="users">
+                                </span>
                         <span class="d-block">
-                            <p class="text-dark text-center text text-_to-auction_bottom">{{$activos}}</p>
-                            Participantes
-                        </span>
+                                    Participantes
+                                </span>
                     </div>
                 </div>
             </div>
@@ -233,6 +235,60 @@
         var scroll = document.getElementById("scroll");
         scroll.scrollTop = scroll.scrollHeight;
     </script>
+
+    <script>
+        const UsersElement = document.getElementById('users');
+        const productoElement =  @json($producto);
+        var contador = 0;
+        // Echo.join(`subasta.${productoElement.id}`)
+        //     .here((users) =>{
+        //         contador = users.length;
+        //         let element = document.createElement('p');
+        //         element.setAttribute('class', 'text-dark text-center text text-_to-auction_bottom')
+        //         element.setAttribute('id', 'cuenta')
+        //         element.innerText = contador;
+        //         UsersElement.append(element);
+        //     })
+        //     .joining((users)=>{
+        //         contador++;
+        //         let element = document.getElementById('cuenta');
+        //         element.innerText = contador;
+        //         // console.log(contador + ' Metodo joining');
+        //     })
+        //     .leaving((users)=>{
+        //         contador--;
+        //         let element = document.getElementById('cuenta');
+        //         element.innerText = contador;
+        //     })
+        //     .listen('SubastaEvent', (e) => {
+        //
+        //     })
+
+
+    </script>
+
+    <script>
+        {{--const SendElement = document.getElementById('send');--}}
+        {{--const messageElement =  @json($producto);--}}
+
+        {{--console.log(messageElement.id);--}}
+
+        {{--SendElement.addEventListener('click', (e) => {--}}
+        {{--    e.preventDefault();--}}
+
+        {{--    let url = "/live/auction/puja/"+messageElement.id;--}}
+        {{--    axios.post(url)--}}
+        {{--        .then((response) =>{--}}
+        {{--            console.log(response.data);--}}
+        {{--        })--}}
+        {{--        .catch(function (error) {--}}
+        {{--            console.log(error);--}}
+        {{--        });--}}
+        {{--    // window.axios.get('/test/message?id=1',{--}}
+        {{--    //     message: messageElement.id--}}
+        {{--    // });--}}
+        {{--});--}}
+    </script>
 @endpush
 @push('styles')
     <style>
@@ -285,4 +341,6 @@
         }
     </style>
 @endpush
+
+
 

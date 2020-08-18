@@ -34,9 +34,13 @@ class ImagenesVehiculo extends Model
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'            => 'integer',
+        'empresa_id'    => 'integer',
+        'lote_id'       => 'integer',
+        'producto_id'   => 'integer',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
 
     public function Vehiculo()
@@ -47,6 +51,16 @@ class ImagenesVehiculo extends Model
     public function Producto()
     {
         return $this->belongsTo(Producto::class, 'producto_id');
+    }
+
+    public function Lote()
+    {
+        return $this->belongsTo(Lot::class, 'lote_id');
+    }
+
+    public function Empresa()
+    {
+        return $this->belongsTo(Company::class, 'empresa_id');
     }
 
 }

@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\ActiveAuc;
 use App\Auction;
 use App\Balance;
+use App\Company;
+use App\Events\SubastaEvent;
 use App\Garantia;
 use App\Helpers\Gambito;
+use App\Lot;
 use App\Message;
+use App\Producto;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuctionsController extends Controller
@@ -28,9 +33,13 @@ class AuctionsController extends Controller
     public function show()
     {
         $producto = Gambito::obtenerProducto()->load('Vehiculo');
-//        dd($producto->Vehiculo);
-
-        return view('auction.show', compact('producto'));
+        $referidos = Producto::where('lote_id', $producto->lote_id)
+            ->where('finalized_at', '>', now())
+            ->where('id', '!=', $producto->id)
+            ->get();
+        $empresa = Company::find($producto->empresa_id)->pluck('nombre')->first();
+        $fecha = Lot::find($producto->lote_id)->pluck('subasta_at')->first()->format('M-d g:i A');
+        return view('auction.show', compact('producto', 'referidos', 'empresa', 'fecha'));
     }
 
     public function live()
@@ -54,12 +63,21 @@ class AuctionsController extends Controller
         }
         return view('auction.live');
     }
+
+    public function pujaRecibida(Request $request, $id)
+    {
+        $producto = Producto::where('id', $id)->first();
+//        $estado = 'ganador';
+        broadcast(new SubastaEvent($producto, Auth::user(), 'Hola Mundo'));
+        return response()->json('enviado');
+    }
+
     public function livEnd ($id)
     {
         $i = 0;
-        $producto = Gambito::obtenerProducto();
+        $producto = Producto::whereId($id)->first();
+        $activo = ActiveAuc::where('user_id', Auth::id())->where('producto_id', $id)->first();
         //obtener lista de usuarios activos
-        $activo = ActiveAuc::where('user_id', Auth::id())->where('producto_id', $producto->id)->first();
         $devolver = false;
         if($activo) {
             $pujo = Message::where('user_id', $activo->user_id)->whereBetween('created_at', [$producto->started_at->sub(15, 'Minutes'), $producto->finalized_at])->first();

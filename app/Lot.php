@@ -34,21 +34,23 @@ class Lot extends Model
      * @var array
      */
     protected $casts = [
-        'subasta_at' => 'datetime',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'            => 'integer',
+        'empresa_id'    => 'integer',
+        'subasta_at'    => 'datetime',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
 
     //Relaciones Belongs to
     public function Empresa()
     {
-        return $this->belongsTo('App\Company', 'empresa_id');
+        return $this->belongsTo(Company::class, 'empresa_id');
     }
     // relaciones HasMany
     public function Productos()
     {
-        return $this->hasMany('App\Producto', 'lote_id');
+        return $this->hasMany(Producto::class, 'lote_id');
     }
 
 

@@ -15,8 +15,8 @@ class CreateMessagesTable extends Migration {
 		Schema::create('messages', function(Blueprint $table)
 		{
 			$table->id();
-			$table->unsignedBigInteger('producto_id');
-			$table->unsignedBigInteger('user_id');
+			$table->foreignId('producto_id')->nullable()->constrained()->onDelete('set null');
+			$table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
 			$table->string('message');
 			$table->timestamps();
 			$table->softDeletes();

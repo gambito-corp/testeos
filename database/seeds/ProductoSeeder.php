@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Producto;
+use Carbon\Carbon;
 
 class ProductoSeeder extends Seeder
 {
@@ -20,15 +21,15 @@ class ProductoSeeder extends Seeder
             'tipo_vehiculo'     => 'Vehiculo Ligero',
             'tipo_subasta'      => 'Subasta',
             'tipo_reserva'      => 'Sin Reserva',
-            'nombre'            => 'TOYOTA YARIS 2015',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'nombre'            => 'KIA RIO 2014',
+            'imagen'            => '1.jpg',
             'precio'            => 1000,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -38,15 +39,15 @@ class ProductoSeeder extends Seeder
             'tipo_vehiculo'     => 'Vehiculo Ligero',
             'tipo_subasta'      => 'Subasta',
             'tipo_reserva'      => 'Sin Reserva',
-            'nombre'            => 'CHEVROLET SAIL 2015',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'nombre'            => 'TOYOTA AXS 2015',
+            'imagen'            => '2.jpg',
             'precio'            => 1000,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -56,15 +57,15 @@ class ProductoSeeder extends Seeder
             'tipo_vehiculo'     => 'Vehiculo Pesado',
             'tipo_subasta'      => 'Compra',
             'tipo_reserva'      => 'Compra Directa',
-            'nombre'            => 'TOYOTA YARIS 2014',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'nombre'            => 'NISSAN SENTRA 2008',
+            'imagen'            => '3.jpg',
             'precio'            => 1100,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -74,15 +75,15 @@ class ProductoSeeder extends Seeder
             'tipo_vehiculo'     => 'Vehiculo Pesado',
             'tipo_subasta'      => 'Subasta',
             'tipo_reserva'      => 'Con Reserva',
-            'nombre'            => 'TOYOTA YARIS 2013',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'nombre'            => 'HYUNDAI AXS 2013',
+            'imagen'            => '4.jpg',
             'precio'            => 1200,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -92,15 +93,15 @@ class ProductoSeeder extends Seeder
             'tipo_vehiculo'     => 'Vehiculo Ligero',
             'tipo_subasta'      => 'Subasta',
             'tipo_reserva'      => 'Sin Reserva',
-            'nombre'            => 'TOYOTA YARIS 2012',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'nombre'            => 'RUBICON FORD 2012',
+            'imagen'            => '5.jpg',
             'precio'            => 1300,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -110,15 +111,15 @@ class ProductoSeeder extends Seeder
             'tipo_vehiculo'     => 'Vehiculo Ligero',
             'tipo_subasta'      => 'Compra',
             'tipo_reserva'      => 'Compra Directa',
-            'nombre'            => 'TOYOTA YARIS 2011',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'nombre'            => 'HONDA LANSER 2011',
+            'imagen'            => '6.jpg',
             'precio'            => 1400,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -128,15 +129,15 @@ class ProductoSeeder extends Seeder
             'tipo_vehiculo'     => 'Vehiculo Ligero',
             'tipo_subasta'      => 'Subasta',
             'tipo_reserva'      => 'Con Reserva',
-            'nombre'            => 'TOYOTA YARIS 2010',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'nombre'            => 'NISSAN AAA 2010',
+            'imagen'            => '7.jpg',
             'precio'            => 1500,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -146,15 +147,15 @@ class ProductoSeeder extends Seeder
             'tipo_vehiculo'     => 'Vehiculo Pesado',
             'tipo_subasta'      => 'Subasta',
             'tipo_reserva'      => 'Sin Reserva',
-            'nombre'            => 'NISSAN SENTRA 2005',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'nombre'            => 'NISSAN AXL 2005',
+            'imagen'            => '8.jpg',
             'precio'            => 1600,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -164,15 +165,15 @@ class ProductoSeeder extends Seeder
             'tipo_vehiculo'     => 'Vehiculo Ligero',
             'tipo_subasta'      => 'Compra',
             'tipo_reserva'      => 'Compra Directa',
-            'nombre'            => 'MAZDA 3 2010',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'nombre'            => 'KIA RIO 2001',
+            'imagen'            => '9.jpg',
             'precio'            => 1700,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -183,14 +184,14 @@ class ProductoSeeder extends Seeder
             'tipo_subasta'      => 'Subasta',
             'tipo_reserva'      => 'Con Reserva',
             'nombre'            => 'TOYOTA YARIS 2019',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'imagen'            => '10.jpg',
             'precio'            => 900,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
         Producto::create([
             'user_id'           => 3,
@@ -201,14 +202,14 @@ class ProductoSeeder extends Seeder
             'tipo_subasta'      => 'Subasta',
             'tipo_reserva'      => 'Sin Reserva',
             'nombre'            => 'KIA CERATO 2012',
-            'imagen'            => 'img/vehiculos/coche.png',
+            'imagen'            => '11.jpg',
             'precio'            => 1900,
             'precio_reserva'    => 3000,
             'garantia'          => 1000,
             'puja'              => 100,
             'comision'          => 5,
-            'started_at'        => '2020-06-13 15:55:00',
-            'finalized_at'      => '2020-07-20 17:04:14'
+            'started_at'        => Carbon::now(),
+            'finalized_at'      => Carbon::now()->addYear(),
         ]);
     }
 }

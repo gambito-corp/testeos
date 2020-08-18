@@ -19,7 +19,7 @@
             <!-- main content -->
             <div class="col-md-3 order-md-1 mb-4  ">
                 <div>
-                    <div class="bg-light-card topics shadow-sm ">
+                    <div class="bg-light-card topics">
                         <div class="card-body myList">
                             <p class=" font-weight-bold text-left">T&oacute;picos</p>
                             <ul class="nav">
@@ -46,18 +46,20 @@
                     ¿ C&oacute;mo subastar ?
                 </p>
                 <div class="card mt-4 border-0">
-                    <svg class="bd-placeholder-img card-img-top fluid rounded" width="100%" height="180"
+                    <!-- <svg class="bd-placeholder-img card-img-top fluid rounded1" width="100%" height="180"
                          xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
                          aria-label="Placeholder: Image cap">
                         <title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6"
                                                                                      dy=".3em">Image
                             cap</text>
-                    </svg>
+                    </svg> -->
+                    <!-- <div class="tyclateral"></div> -->
+                    <img src="../img/ter_condic.png" alt="" class="tyclateral radius">
                     <div class="card-body">
-                        <p class="card-text">In the essays "Overstating the Arab State", by Nazih Ayubi, and "Is Jordan
-                            Palestine?",
-                            by Raphael Israel, the authors deal with the psychologically fragmented postcolonial identity.</p>
+                        <p class="card-text">Esta guía te dara los 4 simples pasos para poder encontrar tu auto y dar tu mejor oferta, aprovecha la oportunidad de obtener un auto a un precio mucho más bajo que el mercado.
+                        </p>
+                        <a href="/participar" class="btn btn-primary">Conoce</a>
                     </div>
                 </div>
             </div>
@@ -66,30 +68,47 @@
                     <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="basicas-tab" id="basicas">
                         <h1 class="font-weight-bold text-capitalize text-dark">I.Introduccion</h1>
                         <div class="col-md col-sm-9">
-                            <p class="mt-5 font-weight-bold text-darken">1. Donde se realizan las subastas ? </p>
+
+                            <!-- <p class="mt-5 font-weight-bold text-darken">1. Donde se realizan las subastas ? </p> -->
+                            <h5 class="mt-5">1. Donde se realizan las subastas ?</h5>
                             <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo pariatur, amet ullam ab quod
                                 sed error provident debitis, eligendi nisi soluta est animi ipsam. Sint molestias nisi placeat ratione
                                 amet.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate doloribus libero omnis iste, neque, alias numquam sequi nesciunt suscipit, minus sint nemo nisi! Nisi alias, numquam in distinctio doloribus possimus.
+                                <br><br>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus aperiam, est facilis iusto voluptate mollitia omnis. Provident facere labore temporibus ullam necessitatibus accusamus ad nam eveniet asperiores error, perferendis aspernatur podrá consultoralo  <a href="#">aquí</a> .
                             </p>
-                            <p class="mt-5 font-weight-bold text-darken">2. Donde se realizan las subastas ?</p>
+
+                            <!-- <p class="mt-5 font-weight-bold text-darken">2. Donde se realizan las subastas ?</p> -->
+                            <h5 class="mt-5">2. Donde se realizan las subastas ?</h5>
                             <p class="mt-5">
-                            <div class="media">
-                                <div class="media-body">
-                                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+                            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
                                     odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-                                    fringilla. Donec lacinia congue felis in faucibus.
-                                </div>
-                            </div>
+                                    fringilla. Donec lacinia congue felis in faucibus. <br>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum eveniet repudiandae laboriosam blanditiis magnam, vitae provident molestiae dolorem consectetur ullam enim mollitia natus exercitationem in dicta rerum earum unde aut en <a href="#">terminos y condiciones</a>
                             </p>
-                            </article>
-                            <p class="mt-5 font-weight-bold text-darken">3. Donde se realizan las subastas </p>
+
+                            <!-- <p class="mt-5 font-weight-bold text-darken">3. Donde se realizan las subastas </p> -->
+                            <h5 class="mt-5">3. Donde se realizan las subastas </h5>
                             <p class="mt-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto suscipit exercitationem
                                 veniam repudiandae necessitatibus iure, harum dolorem, unde ducimus tempore quos eligendi fugiat quo,
                                 distinctio sed labore sunt. Quidem, accusamus! </p>
-                            <p class="mt-5  font-weight-bold text-darken"> Donde se realizan las subastas ?</p>
+
+                            <!-- <p class="mt-5  font-weight-bold text-darken">4. Donde se realizan las subastas ?</p> -->
+                            <h5 class="mt-5">4. Donde se realizan las subastas ?</h5>
                             <p class="mt-5  "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui doloremque non ut similique
                                 provident, beatae vel, incidunt, inventore atque ad repellat. Numquam repudiandae similique, incidunt
                                 provident sapiente totam? Nisi, assumenda?</p>
+
+                            <!-- <p class="mt-5  font-weight-bold text-darken">5. Donde se realizan las subastas ?</p> -->
+                            <h5 class="mt-5">5. Donde se realizan las subastas ?</h5>
+                            <p class="mt-5  "> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui doloremque non ut similique
+                                provident, beatae vel, incidunt, inventore atque ad repellat. Numquam repudiandae similique, incidunt
+                                provident sapiente totam? Nisi, assumenda?</p>
+
+                            <!-- <p class="mt-5  font-weight-bold text-darken">6. Donde se realizan las subastas ?</p> -->
+                            <h5 class="mt-5">6. Donde se realizan las subastas ?</h5>
+                            <p class="mt-5  "> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam, esse numquam ad quaerat repudiandae vero! Ipsam sit dolorum laborum, deleniti dolor qui recusandae eum odit saepe vitae illum. Repellat, tenetur. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium veniam ipsum facere nam? Distinctio nostrum animi unde doloribus voluptatibus sint corporis sunt neque sit alias. Tempora dolore magni possimus omnis.</p>
                         </div>
                     </div>
                     <div class="tab-pane fade" role="tabpanel" aria-labelledby="saldo-tab" id="saldo">
@@ -112,7 +131,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>
@@ -146,7 +165,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>
@@ -180,7 +199,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>
@@ -214,7 +233,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>
@@ -248,7 +267,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>
@@ -282,7 +301,7 @@
                                         odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
                                         fringilla. Donec lacinia congue felis in faucibus.
                                     </div>
-                                    <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image">
+                                    <!-- <img class="d-flex ml-3" src="/images/pathToYourImage.png" alt="Generic placeholder image"> -->
                                 </div>
                                 </p>
                             </article>

@@ -15,8 +15,9 @@ class CreateRankingsTable extends Migration
     {
         Schema::create('rankings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('producto_id');
-            $table->foreignId('user_id');
+            $table->foreignId('producto_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
+            $table->integer('cantidad');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -2,10 +2,7 @@
 
 namespace App\Providers;
 
-use App\Listeners\UsuarioLogin;
-use App\Listeners\UsuarioLogout;
-use Illuminate\Auth\Events\Login;
-use Illuminate\Auth\Events\Logout;
+use App\Events\SubastaEvent;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -22,12 +19,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        Login::class => [
-            UsuarioLogin::class,
+        SubastaEvent::class => [
+            accionSubasta::class,
         ],
-        Logout::class => [
-            UsuarioLogout::class,
-        ]
+
     ];
 
     /**

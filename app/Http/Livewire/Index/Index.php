@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Index;
 
 use App\Company;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
 
 class Index extends Component
@@ -18,7 +19,21 @@ class Index extends Component
     public function mount()
     {
         $this->picked = true;
-        $this->empresas = Company::all()->load('Lotes', 'Productos');
+        $productosClosure = function ($query)
+        {
+            $query->where('finalized_at', '>', now())
+                ->with('Lote');
+        };
+        $lotesClosure = function ($query) use ($productosClosure)
+        {
+            $query->whereHas('Productos', $productosClosure)->with([
+                'Productos' => $productosClosure
+            ]);
+        };
+        $this->empresas =  Company::whereHas('Productos', $productosClosure)
+            ->with(['Productos' => $productosClosure])
+            ->whereHas('Lotes', $lotesClosure)->with(['Lotes' => $lotesClosure])
+            ->get();
     }
     public function hydrate()
     {

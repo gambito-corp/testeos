@@ -4,17 +4,36 @@ namespace App\Http\Livewire\Index;
 
 use App\Company;
 use App\Producto;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Redis;
 
 class Busqueda extends Component
 {
+//    METODO CERRADO 100%
+    /**
+     * @var mixed
+     */
     public $buscar = '';
+    /**
+     * @var mixed
+     */
     public $empresas = [];
+    /**
+     * @var mixed
+     */
     public $picked;
+    /**
+     * @var mixed
+     */
     public $precioMin;
+    /**
+     * @var mixed
+     */
     public $precioMax;
+    /**
+     * @var mixed
+     */
     public $memoria;
     /**
      * @var mixed
@@ -29,10 +48,9 @@ class Busqueda extends Component
      */
     public $tipoR;
     /**
-     * @var Producto[]|\Illuminate\Database\Eloquent\Collection|mixed
+     * @var mixed
      */
     public $select;
-
 
     public function mount($empresas)
     {
@@ -89,7 +107,7 @@ class Busqueda extends Component
 
     public function updatedCiudad()
     {
-        if(Cache::has('ciudad')){
+        if(Cache::has('ciudad') || $this->ciudad == '+'){
             Cache::forget('ciudad');
         }
         if($this->ciudad != ''){
@@ -112,8 +130,10 @@ class Busqueda extends Component
         if(Cache::has('tipoR')) {
             $this->tipoR == Cache::get('tipoR');
         }
+//        dd($this->tipoR);
         $this->General();
     }
+
     public function TipoV($tipoV)
     {
         if(Cache::has('tipoV')){

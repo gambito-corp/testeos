@@ -15,7 +15,7 @@ class Country extends Model
      * @var array
      */
     protected $fillable = [
-        
+        'parent_id', 'nombre', 'descripcion', 'codigo'
     ];
 
     /**
@@ -24,7 +24,7 @@ class Country extends Model
      * @var array
      */
     protected $hidden = [
-        
+
     ];
 
     /**
@@ -33,9 +33,22 @@ class Country extends Model
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
+        'id'            => 'integer',
+        'parent_id'     => 'integer',
+        'created_at'    => 'datetime',
+        'updated_at'    => 'datetime',
+        'deleted_at'    => 'datetime',
     ];
-    
+
+    //Relaciones
+    public function Parent()
+    {
+        return $this->belongsTo(Country::class, 'parent_id');
+    }
+
+    public function Direccionres()
+    {
+        return $this->hasMany(Address::class);
+    }
+
 }
